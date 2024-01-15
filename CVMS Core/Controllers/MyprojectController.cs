@@ -483,7 +483,7 @@ namespace CVMS_Core.Controllers
         }
 
 
-        public IActionResult Chinaar()
+        public IActionResult Chinaarsatrupa()
         {
             return View();
         }
