@@ -477,5 +477,10 @@ namespace CVMS_Core.Controllers
             return RedirectToAction("AdminLogin", "Myproject");
         }
 
+        public IActionResult ABVCD()
+        {
+            return View();
+        }
+
     }
 }
