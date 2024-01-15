@@ -487,6 +487,10 @@ namespace CVMS_Core.Controllers
         {
             return View();
         }
+        public IActionResult Arnab_ka_lover_Sukanya()
+        {
+            return View();
+        }
 
     }
 }
