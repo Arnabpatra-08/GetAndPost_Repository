@@ -483,7 +483,7 @@ namespace CVMS_Core.Controllers
         }
 
 
-        public IActionResult bikashStepmom()
+        public IActionResult Chinaar()
         {
             return View();
         }
