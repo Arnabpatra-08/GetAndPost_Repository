@@ -1,0 +1,60 @@
+﻿@model CVMSCore.BAL.Models.Car_model.BuySignUp
+
+@{
+    ViewData["Title"] = "Buysignuppage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyJCAmJM2oGCD8BqebtST+eGoUaaMgRVCA" crossorigin="anonymous">
+    <title>Sign Up</title>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3> Please SignUp </h3>
+                    </div>
+                    <div class="card-body">
+                        @using (Html.BeginForm("BuySignUpPage", "Car", FormMethod.Post))
+                        {
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.CustomerName)
+                                @Html.TextBoxFor(model => model.CustomerName, new { @class = "form-control", placeholder = "Enter your Name", required = "required" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.UserName)
+                                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "Enter your username", required = "required" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Passward)
+                                @Html.PasswordFor(model => model.Passward, new { @class = "form-control", placeholder = "Enter your password", required = "required" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ComfirmPassward)
+                                @Html.PasswordFor(model => model.ComfirmPassward, new { @class = "form-control", placeholder = "Enter your confirm password", required = "required" })
+                            </div>
+                            <div>
+                                @ViewBag.ReturnMessage
+                            </div>
+                            <button type="submit" class="btn btn-primary">Sign Up</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</body>
+</html>
+

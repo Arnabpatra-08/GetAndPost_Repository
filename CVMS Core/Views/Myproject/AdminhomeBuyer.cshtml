@@ -1,0 +1,138 @@
+﻿
+@{
+    ViewData["Title"] = "AdminhomeBuyer";
+    Layout = "~/Views/Shared/_Layout.cshtml";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+}
+
+@*------------------------------------------------------------------------*@
+<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" id="Home-btn" href="#">Admin Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" id="Buyer-btn" href="#">Buyer List <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="seller-btn" href="#">Seller List</a>
+            </li>
+            <li class="nav-item nav-item-right" style="margin-left: 1000px;">
+                <a href="#" class="nav-link badge badge-success">Logout</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+@*------------------------------------------------------------------------*@
+
+<section>
+    @*<div class="wraper-main-detail">*@
+    <div class="container-fluid">
+        <div class="row page-heading-row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h1 class="page-heading">Buyer Details</h1>
+            </div>
+        </div>
+        <div class="shadow-border mb-3 bg-light">
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="label-dflt">Country</label>
+                        <select id="Country" class="form-control">
+                            <option selected="" disabled>Select Country</option>
+                            @*<option>1</option>
+                            <option>2</option>*@
+                        </select>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="label-dflt">State</label>
+                        <select id="State" class="form-control">
+                            <option selected="" disabled>Select State</option>
+                            @*<option>1</option>
+                            <option>2</option>*@
+                        </select>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="label-dflt">City</label>
+                        <select id="City" class="form-control">
+                            <option selected="" disabled>Select city</option>
+                            @*<option>1</option>
+                            <option>2</option>*@
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wraper-main-detail">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="search-strip">
+                        <ul class="search-box d-flex">
+                            <li class="flex-grow-1"><input type="text" placeholder="Search.." id="search" class="form-control"></li>
+                            <li><button type="button" class="btn btnGrey"><i class="fa fa-search" aria-hidden="true"></i></button></li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="table-responsive">
+                        <table id="usertbl" class="table table-hover master-table table-bordered">
+                            <thead class="table-light-head">
+                                <tr>
+                                    <th scope="col">S no.</th>
+                                    <th scope="col">Customer  Name</th>
+                                    <th scope="col">Mobile No</th>
+                                    <th scope="col">Country Name</th>
+                                    <th scope="col">State Name</th>
+                                    <th scope="col">City Name</th>
+                                    <th scope="col">Model Name</th>
+                                    <th scope="col">Car Price</th>
+                                    <th scope="col">Maker Name</th>
+                                    <th scope="col">UsageYears</th>
+                                    <th scope="col">Car Colour</th>
+                                    <th scope="col">Condition</th>
+                                    <th scope="col">Mileage</th>
+                                    <th scope="col">Remarks</th>
+                                    @*<th scope="col">Action</th>*@
+                                </tr>
+                            </thead>
+                            <tbody id="buyertabledtl">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</section>
+<script>
+    $('#Home-btn').click(function () {
+        window.location.href = 'https://localhost:7044/Myproject/AdminDashbord';
+    });
+    $('#Buyer-btn').click(function () {
+        window.location.href = 'https://localhost:7044/Myproject/AdminhomeBuyer';
+    });
+    $('#seller-btn').click(function () {
+        window.location.href = 'https://localhost:7044/Myproject/Adminviewpage';
+    });
+
+</script>
+
+<script src="~/content/js/newfolder/adminbuyerdtl.js"></script>

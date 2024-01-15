@@ -1,0 +1,113 @@
+﻿@model CVMSCore.BAL.Models.Car_model.SellerSignUp
+
+@{
+    ViewData["Title"] = "CustomerSignuppage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>CustomerSignuppage</h1>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyJCAmJM2oGCD8BqebtST+eGoUaaMgRVCA" crossorigin="anonymous">
+    <title>Sign Up</title>
+</head>
+  
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <a class="navbar-brand" href="#">Customer SignUp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+
+                <li class="nav-item active">
+                    <a class="nav-link" id="home-btn" href="#">Home<span class="sr-only">(current)</span></a>
+                </li>
+
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Please Sign Up</h3>
+                    </div>
+                    <div class="card-body">
+                        @using (Html.BeginForm("SellSignUpPage", "Myproject", FormMethod.Post))
+                        {
+                           
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.UserName)
+                                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "Enter your username", required = "required" })
+                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Passward)
+                                @Html.PasswordFor(model => model.Passward, new { @class = "form-control", placeholder = "Enter your password", required = "required" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ComfirmPassward)
+                                @Html.PasswordFor(model => model.ComfirmPassward, new { @class = "form-control", placeholder = "Enter your confirm password", required = "required" })
+                            </div>
+                            <div>
+                                @ViewBag.ReturnMessage
+                            </div>
+                            <button type="submit" class="btn btn-primary">Sign Up</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    
+    <footer class="bg-dark text-light text-center py-3">
+        <div class="container">
+            <p>&copy; 2023 Your Company. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        function validatePasswords() {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                document.getElementById('passwordMismatchMessage').innerText = "Password and Confirm Password do not match.";
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission
+        }
+    </script>
+    <script>
+        $('#home-btn').click(function () {
+            window.location.href = 'https://localhost:7044/Myproject/Myhomepage';
+        });
+        
+    </script>
+
+</body>
+</html>
+
+
+
+
+

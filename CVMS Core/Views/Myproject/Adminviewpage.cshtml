@@ -1,0 +1,208 @@
+﻿
+@{
+    ViewData["Title"] = "Adminviewpage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Buy and Sell Module</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300&display=swap">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <header>
+@*        <h1>Car Buy and Sell Module</h1>
+*@ 
+        <div>
+            @ViewBag.ReturnMessage
+        </div>
+    </header>
+   @* <div class="modal" id="imageModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img src="" alt="Image Preview" style="max-width: 100%;">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+    <div class="modal" id="imageModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img src="" alt="Image Preview" style="max-width: 100%;">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*------------------------------------------------------------------------*@
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" id="Home-btn" href="#">Admin Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" id="Buyer-btn" href="#">Buyer List <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="seller-btn" href="#">Seller List</a>
+                </li>
+                <li class="nav-item nav-item-right" style="margin-left:1000px;">
+                    <a href="#" class="nav-link badge badge-success" >Logout</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    @*------------------------------------------------------------------------*@
+
+
+
+    <section>
+        <div class="container-fluid">
+            <div class="row page-heading-row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h1 class="page-heading">Seller Details</h1>
+                </div>
+            </div>
+            <div class="shadow-border mb-3 bg-light">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label class="label-dflt">Country</label>
+                            <select id="Country" class="form-control">
+                                <option selected="" disabled>Select Country</option>
+                                @*<option>1</option>
+                                <option>2</option>*@
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label class="label-dflt">State</label>
+                            <select id="State" class="form-control">
+                                <option selected="" disabled>Select State</option>
+                                @*<option>1</option>
+                                <option>2</option>*@
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label class="label-dflt">City</label>
+                            <select id="City" class="form-control">
+                                <option selected="" disabled>Select city</option>
+                                @*<option>1</option>
+                                <option>2</option>*@
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wraper-main-detail">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="search-strip">
+                            <ul class="search-box d-flex">
+                                <li class="flex-grow-1"><input type="text" placeholder="Search.." id="search" class="form-control"></li>
+                                <li><button type="button" class="btn btnGrey"><i class="fa fa-search" aria-hidden="true"></i></button></li>
+                            </ul>
+                           
+                        </div>
+                        <div class="table-responsive">
+                            <table id="usertbl" class="table table-hover master-table table-bordered">
+                                <thead class="table-light-head">
+                                    <tr>
+                                        <th scope="col">S no.</th>
+                                        <th scope="col">Customer  Name</th>
+                                        <th scope="col">Mobile No</th>
+                                        <th scope="col">Country Name</th>
+                                        <th scope="col">State Name</th>
+                                        <th scope="col">City Name</th>
+                                        <th scope="col">Model Name</th>
+                                        <th scope="col">Car Price</th>
+                                        <th scope="col">Maker Name</th>
+                                        <th scope="col">UsageYears</th>
+                                        <th scope="col">Car Colour</th>
+                                        <th scope="col">Condition</th>
+                                        <th scope="col">Mileage</th>
+                                        <th scope="col">Remarks</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admintable">
+                                   @* <tr>
+                                        <th scope="row">1</th>
+                                        <td>demo</td>
+                                        <td>Maker</td>
+                                        <td>01254</td>
+                                        <td>Red</td>
+                                        <td>Well</td>
+                                        <td>Good</td>
+
+                                        <td>
+
+                                            <button type="button" data-toggle="modal" data-target="#master-toggle" class="btn btn-sm btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                            <button type="button" data-toggle="modal" data-target="#master-toggle" class="btn btn-sm btn-info"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                            <button type="button" class="btn btn-sm btn-danger">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </button>
+                                        </td>
+                                    </tr>*@
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+    <script>
+        $('#Home-btn').click(function () {
+            window.location.href = 'https://localhost:7044/Myproject/AdminDashbord';
+        });
+        $('#Buyer-btn').click(function () {
+            window.location.href = 'https://localhost:7044/Myproject/AdminhomeBuyer';
+        });
+        $('#seller-btn').click(function () {
+            window.location.href = 'https://localhost:7044/Myproject/Adminviewpage';
+        });
+
+    </script>
+</body>
+
+</html>
+
+@*<link href="~/content/css/car.css" rel="stylesheet" />
+*@
+<script src="~/content/js/newfolder/adminviewjquery.js"></script>

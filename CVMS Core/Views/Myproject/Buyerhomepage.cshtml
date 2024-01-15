@@ -1,0 +1,409 @@
+﻿
+@{
+    ViewData["Title"] = "Buyerhomepage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<!-- Button to nav bar -->
+<style>
+    .modal-body {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    #submit-btn {
+        position: sticky;
+        bottom: 10px;
+    }
+</style>
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+           
+            <li class="nav-item active">
+                <a class="nav-link" id="Buyer-btn" href="#">Want To Buy <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="seller-btn" href="#">Want To Sell</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="home" href="#">Home</a>
+
+            </li>
+            <li class="nav-item nav-item-right" style="margin-left: 500px;">
+                <a href="#"id="logout" class="nav-link badge badge-success">Logout</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+
+<!-- Modal -->
+<div class="modal" id="popupform" tabindex="-1" role="dialog" aria-labelledby="BuyercarDetailsModallabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="BuyercarDetailsModallabel">Add Car Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Car Details Form -->
+                <form id="buycarDetailsForm">
+                    <div class="container-fluid">
+
+                        <div class="shadow-border mb-3 bg-light">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="Name">Seller Name:</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="Mobile No">Seller Mobile No:</label>
+                                        <input type="text" class="form-control" id="mobile" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shadow-border mb-3 bg-light">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="Name">Buyer Name:</label>
+                                        <input type="text" class="form-control" id="buyername" required>
+                                        <span class="error-message" id="buyname-error"></span>
+
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="Mobile No"> buyer Mobile No:</label>
+                                        <input type="text" class="form-control" id="buyermobile" required>
+                                        <span class="error-message" id="buymobile-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="shadow-border mb-3 bg-light">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="Country">Country:</label>
+                                        <input type="text" class="form-control" id="country" required>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="State">State:</label>
+                                        <input type="text" class="form-control" id="state" required>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="city">City:</label>
+                                        <input type="text" class="form-control" id="city" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @*<div class="shadow-border mb-3 bg-light">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label class="label-dflt">Country</label>
+                                        <select id="country" class="form-control">
+                                            <option selected="" disabled>Select Country</option>
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label class="label-dflt">State</label>
+                                        <select id="state" class="form-control">
+                                            <option selected="" disabled>Select State</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label class="label-dflt">City</label>
+                                        <select id="city" class="form-control">
+                                            <option selected="" disabled>Select city</option>
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+
+                        <div class="shadow-border mb-3 bg-light">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="carModel">Car Model:</label>
+                                        <input type="text" class="form-control" id="carModel" required>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="carPrice">Price:</label>
+                                        <input type="text" class="form-control" id="carPrice" required>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="companyName">Company:</label>
+                                        <input type="text" class="form-control" id="companyName" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="shadow-border mb-3 bg-light">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="carColor">Color:</label>
+                                        <input type="text" class="form-control" id="carColor" required>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="usageYears">Years of Usage:</label>
+                                        <input type="text" class="form-control" id="usageYears" required>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="carCondition">Car Condition:</label>
+                                        <select class="form-control" id="carCondition" required>
+                                            <option value="new">New</option>
+                                            <option value="used">Used</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="shadow-border mb-3 bg-light">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="mileage">Mileage:</label>
+                                        <input type="text" class="form-control" id="mileage" required>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="remarks">Remarks:</label>
+                                        <input type="text" class="form-control" id="remarks" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="hidden" id="hiddenId" />
+                        <button type="submit" id="Buy-submit-btn" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<section>
+    @*<div class="wraper-main-detail">*@
+        <div class="container-fluid">
+            <div class="row page-heading-row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h1 class="page-heading">Buy section</h1>
+                </div>
+            </div>
+            <div class="shadow-border mb-3 bg-light">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label class="label-dflt">Country</label>
+                            <select id="Country" class="form-control">
+                                <option selected="" disabled>Select Country</option>
+                                @*<option>1</option>
+                                <option>2</option>*@
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label class="label-dflt">State</label>
+                            <select id="State" class="form-control">
+                                <option selected="" disabled>Select State</option>
+                                @*<option>1</option>
+                                <option>2</option>*@
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label class="label-dflt">City</label>
+                        <select id="City" class="form-control">
+                                <option selected="" disabled>Select city</option>
+                                @*<option>1</option>
+                                <option>2</option>*@
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div class="wraper-main-detail">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="search-strip">
+                        <ul class="search-box d-flex">
+                            <li class="flex-grow-1"><input type="text" placeholder="Search.." id="search" class="form-control"></li>
+                            <li><button type="button" class="btn btnGrey"><i class="fa fa-search" aria-hidden="true"></i></button></li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="table-responsive">
+                        <table id="usertbl" class="table table-hover master-table table-bordered">
+                            <thead class="table-light-head">
+                                <tr>
+                                    <th scope="col">S no.</th>
+                                    <th scope="col">Customer Name</th>
+                                    <th scope="col">Mobile No</th>
+                                    <th scope="col">Country Name</th>
+                                    <th scope="col">State Name</th>
+                                    <th scope="col">City Name</th>
+                                    <th scope="col">Model Name</th>
+                                    <th scope="col">Car Price</th>
+                                    <th scope="col">Maker Name</th>
+                                    <th scope="col">UsageYears</th>
+                                    <th scope="col">Car Colour</th>
+                                    <th scope="col">Condition</th>
+                                    <th scope="col">Mileage</th>
+                                    <th scope="col">Remarks</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="mtable">
+                                <tr>
+                                    @*<th scope="row">1</th>
+                                    <td>demo</td>
+                                    <td>Maker</td>
+                                    <td>01254</td>
+                                    <td>Red</td>
+                                    <td>Well</td>
+                                    <td>Good</td>
+
+                                    <td>
+
+                                        <button type="button" data-toggle="modal" data-target="#master-toggle" class="btn btn-sm btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                        <button type="button" data-toggle="modal" data-target="#master-toggle" class="btn btn-sm btn-info"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                        <button type="button" class="btn btn-sm btn-danger">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </button>
+                                    </td>*@
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+@*<img src="~/newfolder/pexels-pixabay-164634.jpg" />*@
+@*<img src="~/newfolder/background.jpg" />
+*@
+<div class="modal fade" id="imgPreviewModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content master-popup-content">
+            <div class="modal-header master-popup-header">
+                <h5 class="modal-title" id="exampleModalLabel">Image Preview</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div> 
+
+            @*<div class="modal-body master-popup-body" tabindex="-1" style="height: 200px; width: 100%;">
+                <img src="@Url""@*.Content("~/wwwroot/NewFolder/background.jpg")" alt="My image" class="img-fluid" id="imgshow">
+            </div>*@
+
+            <div class="modal-body master-popup-body" tabindex="-1" style="height: 200px; width: 100%;">
+                <img src="/wwwroot/newfolder/image.jpg" alt="My image" class="img-fluid" id="imgshow">
+            </div>
+
+           @* <div class="modal-body master-popup-body" style="height: 200px; width: 100%;">
+                <img src="~/newfolder/background.jpg" alt="My image" class="img-fluid" disabled='true' id="imgshow" />
+               @* <img src="/Myproject/viewdetails?alt=" My image" class="img-fluid" id="imgshow" "  />
+            </div>*@
+            <div class="modal-footer master-popup-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+   
+    $('#Buyer-btn').click(function () {
+        window.location.href = 'https://localhost:7044/Myproject/Buyerhomepage';
+    });
+    $('#seller-btn').click(function () {
+        window.location.href = 'https://localhost:7044/Myproject/Sellerhomepage';
+    });
+    $('#home').click(function () {
+        window.location.href = 'https://localhost:7044/Myproject/SellerDashBoradPage';
+    });
+    $('#logout').click(function () {
+
+        window.location.href = 'https://localhost:7044/Myproject/AdminLogin';
+    });
+   
+</script>
+<script src="~/content/js/NewFolder/buyjquery.js"></script>
+
+@*********************************************************************************************************************
+*@
+<div class="modal fade" id="imgPreviewModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content master-popup-content">
+            <div class="modal-header master-popup-header">
+                <h5 class="modal-title" id="exampleModalLabel">Image Preview</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body master-popup-body">
+                <img src="" class="img-fluid" id="imgshow">
+            </div>
+            <div class="modal-footer master-popup-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

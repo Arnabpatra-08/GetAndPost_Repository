@@ -1,0 +1,135 @@
+﻿@model CVMSCore.BAL.Models.Car_model.Adminlogin
+
+@{
+    ViewData["Title"] = "arnab";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>arnab</h1>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyOsB1CZO+3eNECOI+gD9R6B/Q5SbGjN"
+          crossorigin="anonymous">
+
+    <title>Car Details Form</title>
+
+    <style>
+        /* Add your custom styles here */
+        .popup-form {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+   @* <div>
+    <img src="~/content/newfolder/pexels-pixabay-164634.jpg" class="card-img" alt="...">
+    <!-- Button to trigger the modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#carDetailsModal">
+        Add Car Details
+    </button>
+    </div>*@
+
+
+
+    <div class="card bg-dark text-white">
+        <img src="~/content/newfolder/pexels-pixabay-164634.jpg" class="card-img" alt="...">
+        <div class="card-img-overlay">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#carDetailsModal">
+                Add Car Details
+            </button>
+            
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal" id="carDetailsModal" tabindex="-1" role="dialog" aria-labelledby="carDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="carDetailsModalLabel">Add Car Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Car Details Form -->
+                    <form id="carDetailsForm">
+                        <div class="form-group">
+                            <label for="carModel">Car Model:</label>
+                            <input type="text" class="form-control" id="carModel" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="carPrice">Price:</label>
+                            <input type="number" class="form-control" id="carPrice" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="companyName">Company Name:</label>
+                            <input type="text" class="form-control" id="companyName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="carColor">Color:</label>
+                            <input type="text" class="form-control" id="carColor" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="carCondition">Car Condition:</label>
+                            <select class="form-control" id="carCondition" required>
+                                <option value="new">New</option>
+                                <option value="used">Used</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mileage">Mileage:</label>
+                            <input type="number" class="form-control" id="mileage" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="usageYears">Years of Usage:</label>
+                            <input type="number" class="form-control" id="usageYears" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="carImage">Car Image URL:</label>
+                            <input type="url" class="form-control" id="carImage" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    @*<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-YFqVxk1/izqBfLZSNp3MSZaL9Gr/yCz9LH521F+gI5n0EC/Z9TQ8vD9buAqRwYGG"
+            crossorigin="anonymous"></script>*@
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyOsB1CZO+3eNECOI+gD9R6B/Q5SbGjN"
+            crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Show the modal when the page is loaded
+            $('#carDetailsModal').modal('show');
+
+            // Handle form submission
+            $('#carDetailsForm').submit(function (e) {
+                e.preventDefault();
+                // Add your logic to handle form submission here
+                // You can retrieve form values using $('#carModel').val(), $('#carPrice').val(), etc.
+                // Use AJAX to send the data to the server or any other preferred method
+                // After handling the form, you may close the modal if needed
+                $('#carDetailsModal').modal('hide');
+            });
+        });
+    </script>
+
+</body>
+</html>

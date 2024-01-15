@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewData["Title"] = "Buyhome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Buyhome</h1>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Buy and Sell Module</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300&display=swap">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <section>
+
+        <div class="buy-car">
+
+            <h2>Buy Car Section</h2>
+            <div>@ViewBag.ReturnMessage</div>
+
+            <div class="table-responsive">
+                <table id="usertbl" class="table table-hover master-table table-bordered">
+                    <thead class="table-light-head">
+                        <tr>
+                            <th scope="col">S no.</th>
+                            <th scope="col">Model Name</th>
+                            <th scope="col">Maker Name</th>
+                            <th scope="col">model code</th>
+                            <th scope="col">Car Colour</th>
+                            <th scope="col">Condition</th>
+                            <th scope="col">Remarks</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mtable">
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>demo</td>
+                            <td>Maker</td>
+                            <td>01254</td>
+                            <td>Red</td>
+                            <td>Well</td>
+                            <td>Good</td>
+
+                            <td>
+                                <button type="button" data-toggle="modal" data-target="#master-toggle" class="btn btn-sm btn-info"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
+
+<link href="~/content/css/car.css" rel="stylesheet" />
+
+
+
+
+
+
+

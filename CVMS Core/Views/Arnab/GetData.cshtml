@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "GetData";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>GetData</h1>
+
+<table id="employeeTables">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th> Name</th>
+            <th>Lastname</th>
+            <th>Address</th>
+            <!-- Add more table headers as needed -->
+        </tr>
+    </thead>
+    <tbody id="employeeTable">
+        <!-- Data will be added here -->
+    </tbody>
+</table>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+@*<script src="~/content/js/EmpjQ/JavaScript.js"></script>
+*@
+<script src="~/content/empjq/javascript.js"></script>
+
